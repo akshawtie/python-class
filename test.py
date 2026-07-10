@@ -58,6 +58,7 @@ def add_entry() -> None:
 		carbs = prompt_positive_integer("How many carbs did you eat? ")
 		fat = prompt_positive_integer("How much fat did you eat? ")
 		protein = prompt_positive_integer("How much protein did you eat? ")
+		total_calories = (carbs * 4) + (fat * 9) + (protein * 4)
 		break
 
 	entries = load_entries()
@@ -68,6 +69,7 @@ def add_entry() -> None:
 			"carbs": carbs,
 			"fat": fat,
 			"protein": protein,
+			"total_calories": total_calories,
 		}
 	)
 	save_entries(entries)
