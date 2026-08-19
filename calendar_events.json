@@ -1,9 +1,27 @@
 [
   {
+    "title": "Sample event 1",
+    "date": "2026-07-31",
+    "description": "hwduhwi",
+    "created_at": "2026-07-31T11:32:54"
+  },
+  {
+    "title": "Have lunch",
+    "date": "2026-08-01",
+    "description": "Get chicken biryani",
+    "created_at": "2026-07-31T11:28:43"
+  },
+  {
     "title": "iwjiw",
     "date": "2026-08-01",
     "description": "iwjiw",
     "created_at": "2026-07-31T09:46:24"
+  },
+  {
+    "title": "sample event 2",
+    "date": "2026-08-01",
+    "description": "sample description",
+    "created_at": "2026-07-31T11:33:12"
   },
   {
     "title": "complete blue book",
