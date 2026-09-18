@@ -1,15 +1,18 @@
-import json
-from datetime import datetime, date, timedelta
-from pathlib import Path
+from __future__ import annotations
 
+import json
+from datetime import date, datetime, timedelta
+from pathlib import Path
+from typing import Any
+
+from base_abc import BaseConsoleApp, BaseEntry
 
 __all__ = ["CalendarEventEntry", "CalendarEventApp", "main"]
-
 
 _EVENTS_FILE = Path(__file__).with_name("calendar_events.json")
 
 
-class CalendarEventEntry:
+class CalendarEventEntry(BaseEntry):
 	def __init__(
 		self,
 		title: str,
@@ -22,7 +25,7 @@ class CalendarEventEntry:
 		self.description = description
 		self.created_at = created_at or datetime.now().isoformat(timespec="seconds")
 
-	def to_dict(self) -> dict:
+	def to_dict(self) -> dict[str, Any]:
 		return {
 			"title": self.title,
 			"date": self.event_date,
@@ -31,11 +34,15 @@ class CalendarEventEntry:
 		}
 
 
-class CalendarEventApp:
+class CalendarEventApp(BaseConsoleApp):
 	def __init__(self, events_file: Path | None = None) -> None:
 		self.events_file = events_file or _EVENTS_FILE
 
-	def _load_events(self) -> list[dict]:
+	@property
+	def app_title(self) -> str:
+		return "Calendar Menu"
+
+	def _load_events(self) -> list[dict[str, Any]]:
 		if not self.events_file.exists():
 			return []
 
@@ -49,7 +56,7 @@ class CalendarEventApp:
 
 		return []
 
-	def _save_events(self, events: list[dict]) -> None:
+	def _save_events(self, events: list[dict[str, Any]]) -> None:
 		self.events_file.write_text(json.dumps(events, indent=2), encoding="utf-8")
 
 	def _parse_event_date(self, raw_value: str) -> date | None:
@@ -69,15 +76,8 @@ class CalendarEventApp:
 				continue
 			return parsed_date.isoformat()
 
-	def _prompt_non_empty(self, message: str) -> str:
-		while True:
-			value = input(message).strip()
-			if value:
-				return value
-			print("Please enter a value.")
-
-	def _sort_events(self, events: list[dict]) -> list[dict]:
-		def event_sort_key(event: dict) -> tuple[str, str]:
+	def _sort_events(self, events: list[dict[str, Any]]) -> list[dict[str, Any]]:
+		def event_sort_key(event: dict[str, Any]) -> tuple[str, str]:
 			return (
 				str(event.get("date", "9999-12-31")),
 				str(event.get("title", "")),
@@ -85,7 +85,7 @@ class CalendarEventApp:
 
 		return sorted(events, key=event_sort_key)
 
-	def _matches_search(self, event: dict, search_term: str) -> bool:
+	def _matches_search(self, event: dict[str, Any], search_term: str) -> bool:
 		search_term = search_term.strip().lower()
 		if not search_term:
 			return True
@@ -98,12 +98,13 @@ class CalendarEventApp:
 		return any(search_term in field.lower() for field in fields)
 
 	def add_event(self) -> None:
-		title = self._prompt_non_empty("Event title: ")
+		title = self.prompt_non_empty("Event title: ")
 		event_date = self._prompt_event_date("Event date (YYYY-MM-DD, press Enter for tomorrow): ")
 		description = input("Optional description: ").strip()
 
+		entry = CalendarEventEntry(title, event_date, description)
 		events = self._load_events()
-		events.append(CalendarEventEntry(title, event_date, description).to_dict())
+		events.append(entry.to_dict())
 		self._save_events(self._sort_events(events))
 
 		print(f"Saved '{title}' for {event_date} in {self.events_file.name}.")
@@ -112,7 +113,7 @@ class CalendarEventApp:
 		events = self._sort_events(self._load_events())
 		today = date.today()
 
-		upcoming_events = []
+		upcoming_events: list[tuple[date, dict[str, Any]]] = []
 		for event in events:
 			parsed_date = self._parse_event_date(str(event.get("date", "")))
 			if parsed_date is not None and parsed_date >= today:
@@ -151,7 +152,7 @@ class CalendarEventApp:
 				print(f"   {description}")
 
 	def search_events(self) -> None:
-		search_term = self._prompt_non_empty("Search events by title, date, or description: ")
+		search_term = self.prompt_non_empty("Search events by title, date, or description: ")
 		self.display_events(search_term)
 
 	def delete_event(self) -> None:
@@ -179,32 +180,31 @@ class CalendarEventApp:
 		self._save_events(events)
 		print(f"Deleted '{removed_event.get('title', 'Untitled event')}'.")
 
-	def run(self) -> None:
-		while True:
-			print("\nCalendar Menu")
-			print("1. Add an event")
-			print("2. Delete an event")
-			print("3. See upcoming events")
-			print("4. Display all events")
-			print("5. Search events")
-			print("6. Exit")
+	def display_menu(self) -> None:
+		print("1. Add an event")
+		print("2. Delete an event")
+		print("3. See upcoming events")
+		print("4. Display all events")
+		print("5. Search events")
+		print("6. Exit")
 
-			choice = input("Choose an option: ").strip()
-			if choice == "1":
-				self.add_event()
-			elif choice == "2":
-				self.delete_event()
-			elif choice == "3":
-				self.show_upcoming_events()
-			elif choice == "4":
-				self.display_events()
-			elif choice == "5":
-				self.search_events()
-			elif choice == "6":
-				print("Goodbye.")
-				break
-			else:
-				print("Please choose 1, 2, 3, 4, 5, or 6.")
+	def handle_choice(self, choice: str) -> bool:
+		if choice == "1":
+			self.add_event()
+		elif choice == "2":
+			self.delete_event()
+		elif choice == "3":
+			self.show_upcoming_events()
+		elif choice == "4":
+			self.display_events()
+		elif choice == "5":
+			self.search_events()
+		elif choice == "6":
+			print("Goodbye.")
+			return False
+		else:
+			print("Please choose 1, 2, 3, 4, 5, or 6.")
+		return True
 
 
 def main() -> None:

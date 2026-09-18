@@ -1,0 +1,61 @@
+Track_ID,Artist,Song,Album,Genre,Spotify_Streams,Apple_Streams,YouTube_Streams,Amazon_Streams
+T101,The Weeknd,Blinding Lights,After Hours,Pop,120.5,90.2,150.8,80.1
+T102,Drake,Gods Plan,Scorpion,Rap,110.3,,130.4,75.2
+T103,Taylor Swift,Cruel Summer,Lover,Pop,,85.6,140.2,92.5
+T104,Ed Sheeran,Shape of You,Divide,Pop,115.2,88.4,145.1,85.6
+T105,Kendrick Lamar,HUMBLE,DAMN,Rap,95.6,82.1,120.3,78.9
+T106,Bad Bunny,Titi Me Pregunto,Un Verano Sin Ti,Reggaeton,105.4,89.5,135.2,82.3
+T107,Dua Lipa,Levitating,Future Nostalgia,Pop,,86.2,125.6,81.4
+T108,Eminem,Lose Yourself,8 Mile,Rap,98.5,,115.4,76.5
+T109,J Balvin,Mi Gente,Vibras,Reggaeton,102.3,87.4,128.9,80.6
+T110,Billie Eilish,Bad Guy,WWAFAWDWG,Pop,112.5,91.3,142.7,88.7
+T111,Adele,Hello,25,Pop,140.2,120.5,190.3,95.1
+T112,Bruno Mars,Uptown Funk,Unorthodox Jukebox,Pop,125.4,,180.2,88.5
+T113,Coldplay,Yellow,Parachutes,Rock,95.3,80.1,110.2,70.5
+T114,Doja Cat,Say So,Hot Pink,Pop,105.2,95.3,130.4,85.2
+T115,Elton John,Rocket Man,Honky Chateau,Rock,85.1,75.2,90.3,60.1
+T116,Frank Ocean,Nikes,Blonde,R&B,75.2,,85.1,55.3
+T117,Gorillaz,Feel Good Inc,Demon Days,Rock,90.4,82.1,100.5,65.2
+T118,Harry Styles,As It Was,Harrys House,Pop,135.2,115.3,170.2,92.1
+T119,Imagine Dragons,Radioactive,Night Visions,Rock,115.3,95.2,140.5,80.3
+T120,Justin Bieber,Sorry,Purpose,Pop,130.1,110.5,160.2,88.4
+T121,Katy Perry,Roar,Prism,Pop,120.4,105.2,150.3,85.1
+T122,Lady Gaga,Bad Romance,The Fame Monster,Pop,110.5,,135.4,78.2
+T123,Maroon 5,Sugar,V,Pop,105.2,92.1,125.3,75.4
+T124,Nirvana,Smells Like Teen Spirit,Nevermind,Rock,125.3,100.2,145.5,85.3
+T125,Olivia Rodrigo,good 4 u,SOUR,Pop,145.2,125.3,185.4,95.2
+T126,Post Malone,Circles,Hollywoods Bleeding,Rap,135.1,112.5,165.2,90.1
+T127,Queen,Bohemian Rhapsody,A Night at the Opera,Rock,150.5,130.2,200.5,100.2
+T128,Rihanna,Umbrella,Good Girl Gone Bad,Pop,,105.3,140.2,82.5
+T129,Sia,Chandelier,1000 Forms of Fear,Pop,115.4,98.2,135.5,79.3
+T130,Travis Scott,SICKO MODE,Astroworld,Rap,140.3,118.5,175.3,93.2
+T131,Ariana Grande,7 rings,thank u next,Pop,132.5,110.4,162.3,89.5
+T132,Miley Cyrus,Flowers,Endless Summer Vacation,Pop,148.2,,195.4,96.3
+T133,SZA,Kill Bill,SOS,R&B,142.3,122.1,180.5,94.2
+T134,The Beatles,Hey Jude,The Beatles,Rock,120.5,100.5,145.2,85.1
+T135,Michael Jackson,Billie Jean,Thriller,Pop,145.3,125.4,185.3,95.5
+T136,Pink Floyd,Comfortably Numb,The Wall,Rock,105.2,90.3,120.4,75.2
+T137,David Bowie,Heroes,Heroes,Rock,95.4,,110.5,70.1
+T138,Prince,Purple Rain,Purple Rain,Pop,110.3,95.2,130.4,80.3
+T139,Madonna,Like a Virgin,Like a Virgin,Pop,100.5,88.4,115.2,72.4
+T140,Eagles,Hotel California,Hotel California,Rock,130.4,115.2,155.3,88.5
+T141,Led Zeppelin,Stairway to Heaven,Led Zeppelin IV,Rock,125.5,105.3,145.4,85.2
+T142,AC/DC,Back In Black,Back In Black,Rock,135.2,110.4,160.5,90.3
+T143,Guns N Roses,Sweet Child O Mine,Appetite for Destruction,Rock,120.3,100.2,140.3,82.4
+T144,Metallica,Enter Sandman,Metallica,Rock,115.4,,135.2,78.5
+T145,Eminem,Without Me,The Eminem Show,Rap,125.2,105.4,150.5,85.1
+T146,Kanye West,Stronger,Graduation,Rap,130.5,110.3,155.2,88.3
+T147,Jay-Z,Empire State of Mind,The Blueprint 3,Rap,110.4,95.5,130.3,75.2
+T148,Snoop Dogg,Drop It Like Its Hot,R&G,Rap,105.3,90.2,120.5,72.1
+T149,50 Cent,In Da Club,Get Rich or Die Tryin,Rap,120.2,100.4,140.2,80.5
+T150,Shakira,Hips Dont Lie,Oral Fixation Vol. 2,Pop,135.4,115.5,165.3,92.4
+T151,Ricky Martin,Livin la Vida Loca,Ricky Martin,Pop,,95.3,125.4,75.5
+T152,Enrique Iglesias,Bailando,Sex and Love,Pop,125.3,105.2,150.5,85.2
+T153,Maluma,Hawai,Papi Juancho,Reggaeton,115.4,98.5,135.2,80.1
+T154,Karol G,PROVENZA,KG0516,Reggaeton,130.2,110.4,155.3,88.5
+T155,Rosalia,DESPACHA,MOTOMAMI,Reggaeton,120.5,102.3,145.4,82.3
+T156,Luke Combs,Fast Car,Gettin Old,Country,110.3,,130.5,78.4
+T157,Morgan Wallen,Last Night,One Thing at a Time,Country,140.5,120.2,175.4,95.2
+T158,Zach Bryan,Something in the Orange,American Heartbreak,Country,125.4,108.5,150.2,85.1
+T159,Chris Stapleton,Tennessee Whiskey,Traveller,Country,115.2,95.4,135.3,80.5
+T160,Taylor Swift,Anti-Hero,Midnights,Pop,145.5,125.3,185.2,98.4

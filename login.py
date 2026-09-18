@@ -6,8 +6,20 @@ import re
 from datetime import datetime
 from pathlib import Path
 
+import os
+import sys
+
+_CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+_REMOVED = False
+if _CURRENT_DIR in sys.path:
+	sys.path.remove(_CURRENT_DIR)
+	_REMOVED = True
+
 import tkinter as tk
 from tkinter import messagebox, ttk
+
+if _REMOVED:
+	sys.path.insert(0, _CURRENT_DIR)
 
 
 USERS_FILE = Path(__file__).with_name("login_users.json")
